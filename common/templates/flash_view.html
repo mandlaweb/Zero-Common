@@ -1,0 +1,33 @@
+{% extends "base/layout.html" %}
+
+{% block bodyclass %}{{block.super}} small{% endblock %}
+{% block beforewrapper %}{% endblock %}
+
+
+{% block contenttitle %}
+<h1>
+    {% if flash.error %}{% trans 'Error!' %}{% endif %}
+    {% if flash.success %}{% trans 'Success!' %}{% endif %}
+    {% if flash.notice %}{% trans 'Notice!' %}{% endif %}
+</h1>
+{% endblock %}
+
+
+{% block flash %}
+{% endblock %}
+
+
+{% block body %}
+    {% if messages %}
+      {% for message in messages %}
+        <div id="{{ message.tags }}" class="{{ message.tags }} corner clearfix">
+          <p class="bottom">{{message|safe}}</p>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <p>
+        <a href="{% url home %}">Volver al inicio</a>
+    </p>
+{% endblock %}
+

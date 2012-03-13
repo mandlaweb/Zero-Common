@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head><title>{{subject}}</title>
+</head>
+<body>
+  <div id="wrapper" style="color: #444; background: #444; text-align:left; color: #ccc; padding:2em 2em 1em; -moz-border-radius: 10px; border-radius: 10px;">
+    <div id="container">
+      <div id="header" style="margin:0 0 2em; padding: 0 0 0 1em;">
+        <a href="{{DOMAIN}}" style="font-size:2.5em; border:0px solid #444; color: #fff; text-decoration: none;">
+            <img style="border:0px solid #444; text-decoration: none; color: #fff;" src="http://{{DOMAIN}}/themes/webeos/img/logo.png" alt="webeando.me" />
+        </a>
+      </div>
+      <div id="content" style="background:#222; padding:1em 2em; margin:0 0 2.5em; -moz-border-radius: 10px; border-radius: 10px;">
+          {% block body %}
+          {% endblock %}
+      </div>
+      {% block contentbottom %}
+      {% endblock %}
+    </div>
+  </div>
+</body>
+</html>

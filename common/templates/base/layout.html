@@ -1,0 +1,98 @@
+{% load i18n %}
+{% block doctype %}<!DOCTYPE html>{% endblock %}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="google-site-verification" content="" />
+    
+    {% if LANGUAGE_CODE %}
+    <meta http-equiv="content-language" content="{{ LANGUAGE_CODE }}">
+    {% endif %}
+    
+    {% block metatags %}
+    <meta name="keywords" content="{% block headkeywords %}{{ SITE_KEYWORDS }}{% endblock %}" />
+    <meta name="description" content="{% block headdescription %}{{ SITE_DESCRIPTION }}{% endblock %}" />
+    {% endblock %}
+    
+    {% block shortcut %}
+    <link rel="shortcut icon" href="{{ STATIC_URL }}img/wm.ico" type="image/gif" />
+    {% endblock %}
+    
+    <title>{% block pagetitle %}{{ SITE_NAME }}{% endblock %}</title>
+
+    {% block cssstyles %}
+    <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/iefixes.css" />
+    <![endif]-->
+    {% endblock cssstyles %}
+
+    {% block jsscripts %}
+    <script src="{{ STATIC_URL }}js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jQuery('html').ajaxSend(function(event, xhr, settings) {
+                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                xhr.setRequestHeader("X-CSRFToken", '{{ csrf_token }}');
+                }
+                });
+    </script>
+    <script src="{{ STATIC_URL }}js/jquery.common.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/core.js" type="text/javascript"></script>
+    {% endblock jsscripts %}
+    
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body dir="ltr" class="{% block bodyclass %}{% endblock %}">
+    
+    {% block page %}
+    <div id="page" 
+         class="page {% if request.user.is_authenticated %}inside{% else %}outside{% endif %}">
+         
+        <header id="header" class='section'>
+            {% block header %}
+            {% endblock header %}
+        </header>
+        
+        {% block flash %}
+        <div id="flash" class="section">
+            {% if messages %}
+                {% for message in messages %}
+                <div id="{{ message.tags }}"
+                     class="{{ message.tags }} corner msg clearfix">
+                     <a href="#{{ message.tags }}"
+                        id="flash-close" class="action-close float-right" rel="nofollow">
+                        <strong>Cerrar</strong>
+                     </a>
+                    <p class="bottom">{{ message|safe }}</p>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% endblock flash %}
+        
+
+        {% block beforebody %}
+        {% endblock %}
+
+        <section id="body" class="body section">
+            {% block body %}
+            {% endblock %}
+        </section>
+        
+        {% block afterbody %}
+        {% endblock %}
+
+        <footer id="footer" class="footer container">
+            <span>
+                Copyright &copy; Mandla Web 2012
+            </span>
+        </footer>
+    </div>
+    {% endblock page %}
+
+    {% block bottomscripts %}
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+{% load humanize %}
+
+<div class='content'>
+    <h2>{{ object.name }}</h2>
+    <p class='published'>{{ object.created_at|humanize_datetime }}</p>
+</div>

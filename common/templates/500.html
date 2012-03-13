@@ -1,0 +1,25 @@
+{% extends "base/layout.html" %}
+
+
+{% block bodyclass %}{{block.super}} small{% endblock %}
+{% block beforewrapper %}{% endblock %}
+
+
+{% block contenttitle %}
+    <h1>Error</h1>
+{% endblock %}
+
+
+{% block flash %}
+{% endblock %}
+
+
+{% block body %}
+    <div id="error" class="error corner clearfix">
+        <p class="bottom">{% trans 'Ocurrio un error al procesar la petición' %}...</p>
+    </div>
+
+    <p>
+        <a href="{# url home #}">Volver al inicio</a>
+    </p>
+{% endblock %}

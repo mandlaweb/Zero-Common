@@ -1,0 +1,10 @@
+{% extends 'forms/form.html' %}
+{% load i18n %}
+
+{% block beforeform %}
+    <p class='info corner-small'>
+        {{ confirm_message }}
+    </p>
+{% endblock %}
+
+{% block button %}{% trans 'Continuar' %}{% endblock %}

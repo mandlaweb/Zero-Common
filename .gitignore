@@ -1,0 +1,7 @@
+*~
+*.swp
+*.swo
+*.pyc
+local_settings.py
+django.po
+media/

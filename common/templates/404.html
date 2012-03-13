@@ -1,0 +1,15 @@
+{% extends "base/layout.html" %}
+
+
+{% block bodyclass %}{{block.super}} small{% endblock %}
+
+
+{% block body %}
+    <h1>Error 404 - Página no encontrada</h1>
+    
+    <div id="error" class="error corner clearfix">
+        <p class="bottom">La página solicitada no pudo ser encontrada...</p>
+    </div>
+
+    <p><a href="{# url home #}">Volver al inicio</a></p>
+{% endblock %}

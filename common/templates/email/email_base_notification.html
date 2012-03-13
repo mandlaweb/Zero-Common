@@ -1,0 +1,12 @@
+{% extends 'email/email_base.html' %}
+
+{% block contentbottom %}
+  <hr style="border: 0px solid #fff; border-bottom: 1px solid #aaa; " />
+  <div style="font-size: 0.8em; color: #aaa; ">
+    {% block footer %}
+    {% endblock %}
+    <p style="color: #aaa; ">
+      Por favor no responda este mensaje; fue enviado desde un email no monitoreado.
+    </p>
+  </div>
+{% endblock %}

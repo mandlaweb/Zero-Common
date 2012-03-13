@@ -1,0 +1,55 @@
+{% load i18n %}
+
+{% block beforeform%}{% endblock %}
+
+{% block form %}
+
+
+{% if form.non_field_errors %}
+<p class="error corner-small">
+    {% for error in form.non_field_errors %}
+      {{ error|safe }}<br/>
+    {% endfor %}
+</p>
+{% endif %}
+
+
+<form method="POST" action="{% block form_action %}{% endblock %}"
+      class="{% block class_form %}{% endblock %} {% if ckeditor %}ckeditor{% endif %}"
+      {% block extra_form %}{% endblock %}>
+
+  {% block beforefields %}{% endblock %}
+  
+    <fieldset>
+        <legend>Details</legend>
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="field-wrapper {{field.name}} clearfix{% if field.errors %} invalid{% endif %}">
+            {% block formlabel %}{% if not field.is_hidden %}{{ field.label_tag|safe }}{% endif %}{% endblock %}
+            {% block formfield %}{{ field }}{% endblock %}
+            
+            {% if field.help_text %}
+                <p class="text-small help_text">{{field.help_text|safe}}</p>
+            {% endif %}
+            
+            {% if field.errors %}
+                <p class="error bottom prepend-4">
+                {% for error in field.errors %}
+                    {{ error|safe }}<br />
+                {% endfor %}
+                </p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </fieldset>
+
+  {% block afterfields %}{% endblock %}
+
+  <div class="field-wrapper clearfix submit">
+    <button>{% block button %}{% trans 'Guardar' %}{% endblock %}</button>
+    {% block afterbutton %}{% endblock %}
+  </div>
+</form>
+{% endblock %}
+
+{% block afterform %}{% endblock %}

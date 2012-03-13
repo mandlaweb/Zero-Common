@@ -1,0 +1,9 @@
+{% extends 'base/layout.html' %}
+
+
+{% block bodyclass %}{{block.super}} small{% endblock %}
+
+
+{% block body %}
+    {% include 'form.confirm.html' %}
+{% endblock %}

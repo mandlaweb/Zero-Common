@@ -1,0 +1,24 @@
+{% load i18n %}
+
+{% if paginate %}
+<div class="basic pagination clearfix">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" class="step prev">
+        {% trans 'Recientes' %}
+    </a>
+    {% else %}
+    <span class="disabled step prev">
+        {% trans 'Recientes' %}
+    </span>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="step next">
+        {% trans 'Anteriores' %}
+    </a>
+    {% else %}
+    <span class="disabled step next">
+        {% trans 'Anteriores' %}
+    </span>
+    {% endif %}
+</div>
+{% endif %}

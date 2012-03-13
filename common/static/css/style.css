@@ -1,0 +1,208 @@
+/**  
+* Estilos base para cualquier proyecto.
+*
+* Autor: Jose Maria Zambrana Arze - www.josezambrana.com
+* E-mail: contact@josezambrana.com
+* Twitter: zerofuxor
+* Facebook: josemaria
+* 
+* 0. Reset
+* 1. Global
+* 2. Layout
+* 3. Header
+* 4. Sidebar
+* 5. Body
+* 6. Footer
+**/
+
+
+/****************************
+ * 0. Reset
+ ***************************/
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
+    background:transparent;
+    border:0;
+    font-family:inherit;
+    font-size:100%;
+    font-style:inherit;
+    font-weight:inherit;
+    margin:0;
+    outline:0;
+    padding:0;
+    vertical-align:baseline
+}
+
+body { background:#fff; line-height:1.5 }
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary { display:block }
+nav ul { list-style:none }
+
+blockquote,q { quotes:none }
+blockquote:before,blockquote:after,q:before,q:after { content:none }
+a img { border:none }
+ins { background-color:#ff9; color:#000; text-decoration:none }
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold
+}
+del { text-decoration:line-through }
+abbr[title],dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help
+}
+table { border-collapse:collapse; border-spacing:0 }
+hr {
+    border:0;
+    border-top:1px solid #ccc;
+    display:block;
+    height:1px;
+    margin:1em 0;
+    padding:0
+}
+input,select {
+    vertical-align:middle
+}
+
+/****************************
+ * 1. Global
+ ***************************/
+
+/* Tipografía 
+---------------------- */
+body {
+    background: #fff;
+    color: #444;
+    font-family: Helvetica, Arial, sans-serif;
+	font-size: 75%;
+}
+
+/* Cabeceras */
+h1,h2,h3,h4,h5,h6 { font-weight: normal; }
+
+h1 { font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
+h2 { font-size: 2em; margin-bottom: 0.75em; }
+h3 { font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
+h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
+h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+h6 { font-size: 1em; font-weight: bold; }
+
+/* Enlaces */
+a         { color: #5288DB; }
+a:visited { color: #9DA7B2; }
+a:hover,   
+a:focus   { color: #01243B; }
+
+/* Elementos de texto */
+p { margin: 0 0 1.5em; }
+
+.left    { float: left; }
+.right   { float: right; }
+p .left  { float: left; }
+p .right { float: right; }
+
+blockquote  { margin: 1.5em; color: #666; font-style: italic; }
+strong, dfn	{ font-weight: bold; }
+em, dfn     { font-style: italic; }
+sup, sub    { line-height: 0; }
+
+abbr,
+acronym     { border-bottom: 1px dotted #666; }
+address     { margin: 0 0 1.5em; font-style: italic; }
+del         { color:#666; }
+
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+pre, code, tt { font: 1em 'andale mono', 'lucida console', monospace, serif; line-height: 1.5; }
+
+small { font-size: 0.8em; }
+
+/* Listas */
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+/* Formularios */
+form ul {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+form li { margin: 0 0 1em; padding: 0 1em; }
+
+label    { font-weight: bold; }
+legend   {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+fieldset { 
+    padding: 1em 1em 1.5em; 
+    background: #f8f8f8; 
+}
+
+input  { width: 250px; }
+input, select, textarea {
+    margin: 0.25em 0;
+    padding: 0.5em;
+    background-color:#fff;
+    border:1px solid #bbb;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+input:focus,
+textarea:focus { border-color:#666; }
+
+select   { padding: 0.25em; }
+textarea { width: 300px; height: 100px; }
+
+input[type=checkbox] { width: auto; }
+input[type=radio]    { width: auto; margin:0.25em 1em 0.5em 0; }
+
+form .help {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #666;
+}
+
+button, input[type=submit] {
+    font-size: 1.25em;
+    padding: 0.25em 1em;
+}
+
+.error .help { color: #8A1F11 }
+
+.error input, 
+.error select, 
+.error textarea {
+    border: 1px solid #C30;
+    background: #FBE3E4;
+    color: #8A1F11;
+}
+
+.messages .error,
+.messages .notice,
+.messages .info,
+.messages .success { 
+    margin: 0 0 0.5em; 
+    padding: 0.5em 1em;
+}
+
+form .highlight { background:  #E5ECF9; padding: 0.5em 1em; }
+
+.messages .error   { background: #ffcccc; color: #cc3300; border: 1px solid #cc3300; }
+.messages .notice  { background: #FEEFB3; color: #9F6000; border: 1px solid #FBC2C4; }
+.messages .info    { background: #E5ECF9; color: #514721; border: 1px solid #C3D9FF; }
+.messages .success { background: #E6EFC2; color: #264409; border: 1px solid #C6D880; }
+
+.messages .error a   { color: #8a1f11; }
+.messages .notice a  { color: #514721; }
+.messages .info a    { color: #205791; }
+.messages .success a { color: #264409; }
+
+/* Clases globales*/
+.bottom, .last { margin-bottom: 0; padding-bottom:0; }
+.top, .first { margin-top: 0; padding-top:0; }
+
+
