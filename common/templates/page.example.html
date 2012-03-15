@@ -3,7 +3,24 @@
 
 
 {% block header %}
-    <h1>{% trans 'Mi sitio' %}</h1>
+    <h1 class='bottom'>{% trans 'Mi sitio' %}</h1>
+{% endblock %}
+
+
+{% block beforebody %}
+<nav id="mainmenu" class="section">
+<ul class="menu">
+    <li class="current">
+        <a href="">Inicio</a>
+    </li>
+    <li>
+        <a href="">Enlace 1</a>
+    </li>
+    <li>
+        <a href="">Enlace 2</a>
+    </li>
+</ul>
+</nav>
 {% endblock %}
 
 
@@ -149,10 +166,10 @@
                     <label>Mensaje</label><br />
                     <textarea class="bottom" name="mensaje"></textarea>
                 </li>
+                <li class="submit">
+                    <button>Enviar</button>
+                </li>
             </ul>
-        </fieldset>
-        <fieldset class="top">
-            <button>Enviar</button>
         </fieldset>
     </form>
 
@@ -172,3 +189,4 @@
     adipiscing mauris.
     </p>
 {% endblock %}
+

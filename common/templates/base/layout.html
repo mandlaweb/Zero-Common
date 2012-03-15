@@ -47,7 +47,7 @@
     
     {% block page %}
     <div id="page" 
-         class="page {% if request.user.is_authenticated %}inside{% else %}outside{% endif %}">
+         class="page cf {% if request.user.is_authenticated %}inside{% else %}outside{% endif %}">
          
         <header id="header" class='section'>
             {% block header %}
@@ -55,20 +55,20 @@
         </header>
         
         {% block flash %}
+        {% if messages %}
         <div id="flash" class="section">
-            {% if messages %}
-                {% for message in messages %}
-                <div id="{{ message.tags }}"
-                     class="{{ message.tags }} corner msg clearfix">
-                     <a href="#{{ message.tags }}"
-                        id="flash-close" class="action-close float-right" rel="nofollow">
-                        <strong>Cerrar</strong>
-                     </a>
-                    <p class="bottom">{{ message|safe }}</p>
-                </div>
-                {% endfor %}
-            {% endif %}
+            {% for message in messages %}
+            <div id="{{ message.tags }}"
+                 class="{{ message.tags }} corner msg clearfix">
+                 <a href="#{{ message.tags }}"
+                    id="flash-close" class="action-close float-right" rel="nofollow">
+                    <strong>Cerrar</strong>
+                 </a>
+                <p class="bottom">{{ message|safe }}</p>
+            </div>
+            {% endfor %}
         </div>
+        {% endif %}
         {% endblock flash %}
         
 
@@ -83,10 +83,12 @@
         {% block afterbody %}
         {% endblock %}
 
-        <footer id="footer" class="footer container">
+        <footer id="footer" class="footer section">
+            {% block footer %}
             <span>
                 Copyright &copy; Mandla Web 2012
             </span>
+            {% endblock %}
         </footer>
     </div>
     {% endblock page %}
