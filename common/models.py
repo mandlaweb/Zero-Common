@@ -54,4 +54,4 @@ class Content(models.Model):
                 self.slug = slug
             else:
                 self.slug = "%s-%s" % (self.slug, self.id)
-        super(Content, self).save(*args, **kwargs)
+        return super(Content, self).save(*args, **kwargs)
