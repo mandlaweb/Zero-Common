@@ -8,17 +8,25 @@
 * 
 * 0. Reset
 * 1. Global
-* 2. Layout
-* 3. Header
-* 4. Sidebar
-* 5. Body
-* 6. Footer
+*   1.1 Tipografia
+*   1.2 Clases Globales
+* 2. Formularios
+* 3. Layout
+* 4. Menu principal
+* 5. Sidebar
+* 7. Body
+* 8. Footer
 **/
 
 
-/****************************
- * 0. Reset
- ***************************/
+/*
+ =========================
+ 0. Reset
+ =========================
+ 
+ Sirve para eliminar los estilos por defecto de los navegadores
+
+*/
 
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
     background:transparent;
@@ -65,14 +73,32 @@ input,select {
     vertical-align:middle
 }
 
-/****************************
- * 1. Global
- ***************************/
+/* 
 
-/* Tipografía 
----------------------- */
+ ===========================
+ 1. Global
+ ===========================
+ Estilo definido por defecto para todos los elementos
+
+*/
+
+/* 
+ 1.1 Tipografía 
+ ---------------------- 
+ 
+ Estilos para la tipografia del sitio
+ 
+ * Global
+ * Cabeceras
+ * Enlaces
+ * Otros elementos de texto
+ * Listas
+
+*/
+
+/* Global */
 body {
-    background: #fff;
+    background: #f8f8f8;
     color: #444;
     font-family: Helvetica, Arial, sans-serif;
 	font-size: 75%;
@@ -94,13 +120,19 @@ a:visited { color: #9DA7B2; }
 a:hover,   
 a:focus   { color: #01243B; }
 
-/* Elementos de texto */
-p { margin: 0 0 1.5em; }
+.menu, .menu a, .menu li { 
+    display: block; 
+    float: left; 
+}
 
-.left    { float: left; }
-.right   { float: right; }
-p .left  { float: left; }
-p .right { float: right; }
+.menu a { 
+    padding: 0.5em 1em; 
+    text-decoration: none; 
+    font-size: 1.25em; 
+}
+
+/* Otros elementos de texto */
+p { margin: 0 0 1.5em; }
 
 blockquote  { margin: 1.5em; color: #666; font-style: italic; }
 strong, dfn	{ font-weight: bold; }
@@ -122,7 +154,42 @@ ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 
-/* Formularios */
+
+/* 
+ 1.2 Clases globales 
+ --------------------- 
+ */
+
+.notext { display: block; font-size: 0; text-indent: 9999; }
+.block  { display: block; float: left; margin: 0 1em 1em 0 }
+
+.left    { float: left; }
+.right   { float: right; }
+
+.bottom { margin-bottom: 0; }
+.last   { padding-bottom:0; }
+.top    { margin-top: 0; }
+.first  { padding-top:0; }
+
+
+.cf:before,
+.cf:after { content:""; display:table; }
+.cf:after { clear:both; }
+
+.cf { zoom:1; }
+
+/*
+ =======================
+ 2. Formularios 
+ =======================
+
+ Estilos para los elementos de los formularios
+ 
+*/
+
+form {
+    margin: 0 0 2em;
+}
 form ul {
     list-style:none;
     margin: 0;
@@ -201,8 +268,38 @@ form .highlight { background:  #E5ECF9; padding: 0.5em 1em; }
 .messages .info a    { color: #205791; }
 .messages .success a { color: #264409; }
 
-/* Clases globales*/
-.bottom, .last { margin-bottom: 0; padding-bottom:0; }
-.top, .first { margin-top: 0; padding-top:0; }
 
+/* 
+ ==================
+ 3. Layout
+ ==================
+*/
 
+.page {
+    display: block;
+    width: 728px;
+    margin: 0 auto;
+    padding: 3em;
+    background: #fff;
+}
+
+.section {
+    margin: 0 0 2em;
+    float: left;
+}
+
+#header,
+#mainmenu,
+#body,
+#footer { width: 728px; }
+
+/*
+ =================
+ Menu principal
+ =================
+*/
+
+#mainmenu { background: #888; }
+#mainmenu a { color: #ddd; }
+#mainmenu .current { background: #444 }
+#mainmenu .current a { color: #fff; }
