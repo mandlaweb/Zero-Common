@@ -28,7 +28,7 @@ for dirpath, dirnames, filenames in os.walk('common'):
 
 
 setup(
-    name='zero-common-app',
+    name='zero-common',
     version='0.1',
     description='App with common views, libs and templates that can be used by other apps',
     author='Jose Maria Zambrana Arze',
